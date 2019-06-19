@@ -1,28 +1,37 @@
-import * as neatCsv from "neat-csv";
-import axios from "axios";
+import PluralsightOptions, { defaultOptions } from "./PluralsightOptions";
+import PluralsightUrls from "./utils/PluralsightUrls";
+import { fetchPluralsightCsvAsJson } from "./utils/parsePluralsightCsv";
+import { Course, User, CourseUsage, CourseCompletion } from "./models";
 
-export const Hello = (name: string) => `Hello ${name}`;
+// Reference:
+//  https://www.pluralsight.com/product/professional-services/white-paper/api
+//  https://app.pluralsight.com/plans/api/reports/docs
 
-const url = "http://api.pluralsight.com/api-v0.9/courses";
+export default class Pluralsight {
+  private options: PluralsightOptions;
+  private urls: PluralsightUrls;
 
-export const getCourses = async () => {
-  const response = await axios.get(url);
-  const data: string = response.data;
-  const parsed = await parsePluralsightCsv(data);
-  console.log(parsed);
-  return parsed;
-};
+  constructor(options: PluralsightOptions = defaultOptions) {
+    this.options = {
+      ...defaultOptions,
+      ...options,
+    };
+    this.urls = new PluralsightUrls(this.options);
+  }
 
-export const parsePluralsightCsv = async (csvData: string) => {
-  const parsed = await neatCsv(csvData, {
-    mapValues: ({ header, value }) => {
-      switch (header) {
-        default:
-          return value;
-      }
-    }
-  });
-  return parsed;
-};
+  async getAllCourses(): Promise<Course[]> {
+    return await fetchPluralsightCsvAsJson(this.urls.courseCatalogUrl);
+  }
 
-getCourses();
+  async getAllUsers(): Promise<User[]> {
+    return await fetchPluralsightCsvAsJson(this.urls.usersUrl);
+  }
+
+  async getAllCourseUsage(): Promise<CourseUsage[]> {
+    return await fetchPluralsightCsvAsJson(this.urls.courseUsageUrl);
+  }
+
+  async getAllCourseCompletion(): Promise<CourseCompletion[]> {
+    return await fetchPluralsightCsvAsJson(this.urls.courseCompletionUrl);
+  }
+}
