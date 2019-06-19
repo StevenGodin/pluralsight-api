@@ -13,7 +13,7 @@ npm install pluralsight
 ### Without an API token
 
 ```js
-const Pluralsight = require("pluralsight").default;
+const { Pluralsight } = require("pluralsight");
 
 const api = new Pluralsight();
 
@@ -25,7 +25,7 @@ api.getAllCourses().then(courses => {
 ### With an API token
 
 ```js
-const Pluralsight = require("pluralsight").default;
+const { Pluralsight } = require("pluralsight");
 
 const api = new Pluralsight({
   planId: "<your-plan-id>",
