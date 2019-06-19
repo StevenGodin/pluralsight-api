@@ -2,8 +2,8 @@
   "name": "pluralsight",
   "version": "0.1.0",
   "description": "Pluralsight API NodeJS library with full support of all the Pluralsight API services.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/pluralsight.js",
+  "types": "lib/pluralsight.d.ts",
   "files": [
     "lib/**/*"
   ],
