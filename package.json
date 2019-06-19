@@ -1,0 +1,36 @@
+{
+  "name": "pluralsight",
+  "version": "0.1.0",
+  "description": "Pluralsight API NodeJS library with full support of all the Pluralsight API services.",
+  "main": "lib/pluralsight.js",
+  "types": "lib/pluralsight.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenGodin/pluralsight-api.git"
+  },
+  "keywords": [
+    "pluralsight",
+    "api",
+    "nodejs"
+  ],
+  "author": "Steven Godin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StevenGodin/pluralsight-api/issues"
+  },
+  "homepage": "https://github.com/StevenGodin/pluralsight-api#readme",
+  "devDependencies": {
+    "@types/neat-csv": "^4.0.0",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "neat-csv": "^5.0.0"
+  }
+}
