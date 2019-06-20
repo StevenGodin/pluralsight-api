@@ -23,10 +23,10 @@ export default interface CourseCompletion {
   CourseName?: string;
 
   /** Date that the user first viewed the course (Midnight UTC) */
-  FirstViewDate?: Date;
+  FirstViewDate?: string;
 
   /** Date that the user completed the course (Midnight UTC) */
-  CompletionDate?: Date;
+  CompletionDate?: string;
 
   /** `completed` for each row */
   CompletionStatus?: string;

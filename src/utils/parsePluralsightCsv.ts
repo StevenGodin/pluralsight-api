@@ -12,13 +12,7 @@ export const parsePluralsightCsv = async (csvData: string) => {
     mapValues: ({ header, value }) => {
       switch (header) {
         case "IsOnAccount":
-          return value.toLowerCase() == "true";
-        case "StartDate":
-        case "FirstViewDate":
-        case "ViewDate":
-        case "CompletionDate":
-        case "ReleaseDate":
-          return new Date(value);
+          return value.toLowerCase().trim() == "true";
         case "DurationInSeconds":
         case "UsageInSeconds":
           return Number(value);

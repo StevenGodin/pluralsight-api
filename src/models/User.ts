@@ -15,5 +15,5 @@ export default interface User {
   Note?: string;
 
   /** Date that a user joined the account (can be empty if the user was added through a legacy bulk upload feature) */
-  StartDate?: Date;
+  StartDate?: string;
 }

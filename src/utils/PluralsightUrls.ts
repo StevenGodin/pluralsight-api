@@ -1,28 +1,40 @@
 import PluralsightOptions from "../PluralsightOptions";
 
+const createQueryString = (query?: { [key: string]: string | undefined }) => {
+  if (!query) return undefined;
+
+  return Object.keys(query)
+    .filter(key => query[key] !== undefined)
+    .map(key => `${key}=${query[key]}`)
+    .join("&");
+};
+
 export default class PluralsightUrls {
   constructor(private options: PluralsightOptions) {}
 
-  getReportsUrl(endpointName: string) {
+  getReportsUrl(endpointName: string, filter?: { [key: string]: string | undefined }) {
     const { planId, apiToken, reportsApiUrl } = this.options;
     if (!reportsApiUrl) throw "A reportsApiUrl is required";
     if (!planId || !apiToken) throw "A planId and apiToken are required";
-    return `${reportsApiUrl}/${endpointName}/${planId}?token=${apiToken}`;
+    const queryString = createQueryString(filter);
+    return `${reportsApiUrl}/${endpointName}/${planId}?token=${apiToken}${
+      queryString ? `&${queryString}` : ""
+    }`;
   }
 
-  get courseUsageUrl() {
-    return this.getReportsUrl("course-usage");
+  getCourseUsageUrl(query?: { [key: string]: string | undefined }) {
+    return this.getReportsUrl("course-usage", query);
   }
 
-  get usersUrl() {
+  getCourseCompletionUrl(query?: { [key: string]: string | undefined }) {
+    return this.getReportsUrl("course-completion", query);
+  }
+
+  getUsersUrl() {
     return this.getReportsUrl("users");
   }
 
-  get courseCompletionUrl() {
-    return this.getReportsUrl("course-completion");
-  }
-
-  get courseCatalogUrl() {
+  getCourseCatalogUrl() {
     const { coursesApiUrl } = this.options;
     if (!coursesApiUrl) throw "A coursesApiUrl is required";
     return `${coursesApiUrl}/courses`;

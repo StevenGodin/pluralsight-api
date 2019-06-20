@@ -3,7 +3,7 @@ export default interface Course {
   CourseId?: string;
   CourseTitle?: string;
   DurationInSeconds?: number;
-  ReleaseDate?: Date;
+  ReleaseDate?: string;
   Description?: string;
   AssessmentStatus?: string;
   IsCourseRetired?: string;

@@ -17,7 +17,7 @@ const { Pluralsight } = require("pluralsight");
 
 const api = new Pluralsight();
 
-api.getAllCourses().then(courses => {
+api.getCourses().then(courses => {
   console.log(courses);
 });
 ```
@@ -32,20 +32,23 @@ const api = new Pluralsight({
   apiToken: "<your-api-token>"
 });
 
-api.getAllUsers().then(users => {
-  console.log(users);
+api.getCourseCompletion({
+  startDate: "2018-01-01",
+  endDate: "2018-12-31"
+}).then(records => {
+  console.log(records);
 });
 ```
 
 ## Available Methods
 
-`getAllCourses()` - Returns the latest course catalog.
+- `getCourses()` - Returns the latest course catalog.
 
-`getAllUsers()` - Returns a list of users on the account.
+- `getUsers()` - Returns a list of users on the account.
 
-`getAllCourseUsage()` - Returns course usage for users in the last year. If a user viewed the same course on different days, there will be one row per day.
+- `getCourseUsage({startDate?: string; endDate?: string;})` - Returns course usage for users in the last year or the specified date range. If a user viewed the same course on different days, there will be one row per day.
 
-`getAllCourseCompletion()` - Returns a list of courses that users have completed in the last year. A course is considered complete if the user has viewed all of the clips in the course.
+- `getCourseCompletion({startDate?: string; endDate?: string;})` - Returns a list of courses that users have completed in the last year or the specified date range. A course is considered complete if the user has viewed all of the clips in the course.
 
 ## References
 
