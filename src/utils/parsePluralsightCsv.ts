@@ -21,5 +21,14 @@ export const parsePluralsightCsv = async (csvData: string) => {
       }
     },
   });
-  return parsedData.map(d => ({ ...d }));
+
+  return parsedData.map(d => {
+    if (d["﻿CourseId"]) {
+      return {
+        ...d,
+        CourseId: d["﻿CourseId"],
+      };
+    }
+    return { ...d };
+  });
 };

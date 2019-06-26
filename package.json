@@ -8,6 +8,7 @@
     "lib/**/*"
   ],
   "scripts": {
+    "test": "jest",
     "build": "tsc"
   },
   "repository": {
@@ -26,7 +27,10 @@
   },
   "homepage": "https://github.com/StevenGodin/pluralsight-api#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.15",
     "@types/neat-csv": "^4.0.0",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
   },
   "dependencies": {

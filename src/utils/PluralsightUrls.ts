@@ -1,7 +1,7 @@
 import PluralsightOptions from "../PluralsightOptions";
 
-const createQueryString = (query?: { [key: string]: string | undefined }) => {
-  if (!query) return undefined;
+export const createQueryString = (query?: { [key: string]: string | undefined }) => {
+  if (!query) return "";
 
   return Object.keys(query)
     .filter(key => query[key] !== undefined)
