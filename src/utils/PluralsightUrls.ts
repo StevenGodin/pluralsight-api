@@ -16,8 +16,12 @@ export default class PluralsightUrls {
 
   public getReportsUrl(endpointName: string, filter?: { [key: string]: string | undefined }) {
     const { planId, apiToken, reportsApiUrl } = this.options;
-    if (!reportsApiUrl) { throw new Error("A reportsApiUrl is required"); }
-    if (!planId || !apiToken) { throw new Error("A planId and apiToken are required"); }
+    if (!reportsApiUrl) {
+      throw new Error("A reportsApiUrl is required");
+    }
+    if (!planId || !apiToken) {
+      throw new Error("A planId and apiToken are required");
+    }
     const queryString = createQueryString(filter);
     return `${reportsApiUrl}/${endpointName}/${planId}?token=${apiToken}${queryString ? `&${queryString}` : ""}`;
   }
@@ -36,7 +40,9 @@ export default class PluralsightUrls {
 
   public getCourseCatalogUrl() {
     const { coursesApiUrl } = this.options;
-    if (!coursesApiUrl) { throw new Error("A coursesApiUrl is required"); }
+    if (!coursesApiUrl) {
+      throw new Error("A coursesApiUrl is required");
+    }
     return `${coursesApiUrl}/courses`;
   }
 }
