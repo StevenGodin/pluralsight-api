@@ -10,6 +10,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "coverage": "npm run test -- --coverage && codecov",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/neat-csv": "^4.0.0",
+    "codecov": "^3.5.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",

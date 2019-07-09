@@ -9,6 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/StevenGodin/pluralsight-api/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/StevenGodin/pluralsight-api/master.svg)](https://travis-ci.org/StevenGodin/pluralsight-api)
 [![Greenkeeper badge](https://badges.greenkeeper.io/StevenGodin/pluralsight-api.svg)](https://greenkeeper.io/)
+[![codecov.io](https://codecov.io/github/StevenGodin/pluralsight-api/coverage.svg?branch=master)](https://codecov.io/github/StevenGodin/pluralsight-api?branch=master)
 
 Pluralsight API NodeJS library with full support of all the Pluralsight API services.
 
