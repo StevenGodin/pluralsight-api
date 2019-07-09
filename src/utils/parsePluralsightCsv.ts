@@ -27,6 +27,8 @@ export const parsePluralsightCsv = async (csvData: string) => {
       return {
         ...d,
         CourseId: d["﻿CourseId"],
+      } as {
+        [x: string]: string;
       };
     }
     return { ...d };

@@ -7,12 +7,12 @@ import PluralsightUrls from "./utils/PluralsightUrls";
 //  https://www.pluralsight.com/product/professional-services/white-paper/api
 //  https://app.pluralsight.com/plans/api/reports/docs
 
-interface DateRangeFilter {
+type DateRangeFilter = {
   /** start date string in format YYYY-MM-DD (Midnight UTC) */
   startDate?: string;
   /** end date string in format YYYY-MM-DD (Midnight UTC) */
   endDate?: string;
-}
+};
 
 export default class Pluralsight {
   private options: PluralsightOptions;
