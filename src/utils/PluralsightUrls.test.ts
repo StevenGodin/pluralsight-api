@@ -1,5 +1,4 @@
 import PluralsightUrls, { createQueryString } from "./PluralsightUrls";
-import { PluralsightOptions } from "..";
 
 describe("createQueryString", () => {
   test("returns 0 length string when no query variables", () => {
@@ -15,9 +14,9 @@ describe("createQueryString", () => {
   });
 
   test("returns multiple key-value pairs separated by &", () => {
-    expect(
-      createQueryString({ startDate: "2019-01-01", endDate: "2019-02-01", hello: "true" })
-    ).toBe("startDate=2019-01-01&endDate=2019-02-01&hello=true");
+    expect(createQueryString({ startDate: "2019-01-01", endDate: "2019-02-01", hello: "true" })).toBe(
+      "startDate=2019-01-01&endDate=2019-02-01&hello=true",
+    );
   });
 });
 
@@ -37,9 +36,7 @@ describe("PluralsightUrls", () => {
   });
 
   test("gets reports url with endpoint name", () => {
-    expect(urls.getReportsUrl("something")).toBe(
-      `${reportsApiUrl}/something/${planId}?token=${apiToken}`
-    );
+    expect(urls.getReportsUrl("something")).toBe(`${reportsApiUrl}/something/${planId}?token=${apiToken}`);
   });
 
   test("get reports url throws when missing reportsApiUrl", () => {
@@ -57,26 +54,22 @@ describe("PluralsightUrls", () => {
   });
 
   test("gets Course Usage url", () => {
-    expect(urls.getCourseUsageUrl()).toBe(
-      `${reportsApiUrl}/course-usage/${planId}?token=${apiToken}`
-    );
+    expect(urls.getCourseUsageUrl()).toBe(`${reportsApiUrl}/course-usage/${planId}?token=${apiToken}`);
   });
 
   test("gets Course Usage url with query", () => {
     expect(urls.getCourseUsageUrl({ startDate: "2019-01-01", endDate: "2019-02-01" })).toBe(
-      `${reportsApiUrl}/course-usage/${planId}?token=${apiToken}&startDate=2019-01-01&endDate=2019-02-01`
+      `${reportsApiUrl}/course-usage/${planId}?token=${apiToken}&startDate=2019-01-01&endDate=2019-02-01`,
     );
   });
 
   test("gets Course Completion url", () => {
-    expect(urls.getCourseCompletionUrl()).toBe(
-      `${reportsApiUrl}/course-completion/${planId}?token=${apiToken}`
-    );
+    expect(urls.getCourseCompletionUrl()).toBe(`${reportsApiUrl}/course-completion/${planId}?token=${apiToken}`);
   });
 
   test("gets Course Completion url with query", () => {
     expect(urls.getCourseCompletionUrl({ startDate: "2019-01-01", endDate: "2019-02-01" })).toBe(
-      `${reportsApiUrl}/course-completion/${planId}?token=${apiToken}&startDate=2019-01-01&endDate=2019-02-01`
+      `${reportsApiUrl}/course-completion/${planId}?token=${apiToken}&startDate=2019-01-01&endDate=2019-02-01`,
     );
   });
 

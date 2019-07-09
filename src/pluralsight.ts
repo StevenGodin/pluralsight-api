@@ -1,18 +1,18 @@
+import { Course, CourseCompletion, CourseUsage, User } from "./models";
 import PluralsightOptions, { defaultOptions } from "./PluralsightOptions";
-import PluralsightUrls from "./utils/PluralsightUrls";
 import { fetchPluralsightCsvAsJson } from "./utils/parsePluralsightCsv";
-import { Course, User, CourseUsage, CourseCompletion } from "./models";
+import PluralsightUrls from "./utils/PluralsightUrls";
 
 // Reference:
 //  https://www.pluralsight.com/product/professional-services/white-paper/api
 //  https://app.pluralsight.com/plans/api/reports/docs
 
-type DateRangeFilter = {
+interface DateRangeFilter {
   /** start date string in format YYYY-MM-DD (Midnight UTC) */
   startDate?: string;
   /** end date string in format YYYY-MM-DD (Midnight UTC) */
   endDate?: string;
-};
+}
 
 export default class Pluralsight {
   private options: PluralsightOptions;
@@ -27,12 +27,12 @@ export default class Pluralsight {
   }
 
   /** Returns the latest course catalog. */
-  async getCourses(): Promise<Course[]> {
+  public async getCourses(): Promise<Course[]> {
     return await fetchPluralsightCsvAsJson(this.urls.getCourseCatalogUrl());
   }
 
   /** Returns a list of users on the account. */
-  async getUsers(): Promise<User[]> {
+  public async getUsers(): Promise<User[]> {
     return await fetchPluralsightCsvAsJson(this.urls.getUsersUrl());
   }
 
@@ -41,7 +41,7 @@ export default class Pluralsight {
    * If a user viewed the same course on different days,
    * there will be one row per day.
    */
-  async getCourseUsage(filter?: DateRangeFilter): Promise<CourseUsage[]> {
+  public async getCourseUsage(filter?: DateRangeFilter): Promise<CourseUsage[]> {
     return await fetchPluralsightCsvAsJson(this.urls.getCourseUsageUrl(filter));
   }
 
@@ -50,7 +50,7 @@ export default class Pluralsight {
    * A course is considered complete if the user has viewed all of
    * the clips in the course.
    */
-  async getCourseCompletion(filter?: DateRangeFilter): Promise<CourseCompletion[]> {
+  public async getCourseCompletion(filter?: DateRangeFilter): Promise<CourseCompletion[]> {
     return await fetchPluralsightCsvAsJson(this.urls.getCourseCompletionUrl(filter));
   }
 
@@ -60,7 +60,7 @@ export default class Pluralsight {
    * @param reportName pluralsight report endpoint name
    * @param filter key-values of query parameters
    */
-  async getReportByName(reportName: string, filter?: { [key: string]: string | undefined }) {
+  public async getReportByName(reportName: string, filter?: { [key: string]: string | undefined }) {
     return await fetchPluralsightCsvAsJson(this.urls.getReportsUrl(reportName, filter));
   }
 }

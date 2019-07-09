@@ -1,5 +1,5 @@
-import * as neatCsv from "neat-csv";
 import fetch from "cross-fetch";
+import * as neatCsv from "neat-csv";
 
 export const fetchPluralsightCsvAsJson = async (url: string) => {
   const response = await fetch(url);
@@ -12,7 +12,7 @@ export const parsePluralsightCsv = async (csvData: string) => {
     mapValues: ({ header, value }) => {
       switch (header) {
         case "IsOnAccount":
-          return value.toLowerCase().trim() == "true";
+          return value.toLowerCase().trim() === "true";
         case "DurationInSeconds":
         case "UsageInSeconds":
           return Number(value);
