@@ -1,0 +1,25 @@
+language: node_js
+
+stages:
+  - build
+  - test
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - coverage
+    - lib
+
+jobs:
+  include:
+    - stage: build
+      node_js: 10.16.0
+      script:
+        - npm run build
+
+    - stage: test
+      node_js: 10.16.0
+      script:
+        - npm run test
