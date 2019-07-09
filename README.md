@@ -6,7 +6,7 @@
 [![devDependencies Status](https://david-dm.org/StevenGodin/pluralsight-api/dev-status.svg)](https://david-dm.org/StevenGodin/pluralsight-api?type=dev)
 [![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)
 [![Install Size](https://packagephobia.now.sh/badge?p=pluralsight)](https://packagephobia.now.sh/result?p=pluralsight)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/StevenGodin/pluralsight-api/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/StevenGodin/pluralsight-api/blob/master/LICENSE) [![Greenkeeper badge](https://badges.greenkeeper.io/StevenGodin/pluralsight-api.svg)](https://greenkeeper.io/)
 
 Pluralsight API NodeJS library with full support of all the Pluralsight API services.
 
