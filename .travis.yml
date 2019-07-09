@@ -23,3 +23,8 @@ jobs:
       node_js: 10.16.0
       script:
         - npm run test
+
+    - stage: coverage
+      node_js: 10.16.0
+      script:
+        - npm run coverage
